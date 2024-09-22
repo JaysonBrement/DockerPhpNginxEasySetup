@@ -1,0 +1,10 @@
+FROM php:7.4-fpm
+
+# Install PDO and pdo_mysql extension
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Other optional extensions can be installed similarly:
+# RUN docker-php-ext-install mysqli
+
+# Copy your application code into the container (if needed)
+COPY . /var/www/html
