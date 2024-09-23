@@ -1,6 +1,5 @@
-FROM php:7.4-fpm
+FROM php:8.3-fpm
 
-# Install PDO and pdo_mysql extension
 RUN docker-php-ext-install pdo pdo_mysql
 
 RUN apt-get update && apt-get install -y \
@@ -8,14 +7,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git
 
-# Install Composer globally
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Verify installation
 RUN composer --version
 
-# Other optional extensions can be installed similarly:
-# RUN docker-php-ext-install mysqli
-
-# Copy your application code into the container (if needed)
 COPY . /var/www/html
