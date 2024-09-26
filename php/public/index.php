@@ -1,13 +1,13 @@
 <?php
 
-use Class\Users\User;
+use Class\Connect\Connect;
+use Class\Connect\SingletonConnect;
 
 require_once "../vendor/autoload.php";
 
-$user = new User();
+$instance = SingletonConnect::getInstance();
 
+var_dump($instance);
 
-
-var_dump($forme);
 
 ?>

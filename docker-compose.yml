@@ -29,8 +29,8 @@ services:
   db:
     image: mysql:9.0.1
     container_name: db
-    environment:
-      - MYSQL_ROOT_PASSWORD=bite
+    env_file:
+      - ./php/.env
     volumes:
       - db_data:/var/lib/mysql
     networks:

@@ -1,3 +1,4 @@
 gitkey
 ssh_init.sh
 php/vendor/
+.env
