@@ -4,12 +4,13 @@ namespace Class\Connect;
 use M1\Env\Parser;
 
 class PdoInfo {
-    protected string $mySqlHostName;
-    protected string $dbName;
-    protected string $user;
-    protected string $password;
+    public string $mySqlHostName;
+    public string $dbName;
+    public string $user;
+    public string $password;
+    public string $charset;
 
-    protected function __construct()
+    public function __construct()
     {
         $env = new Parser(file_get_contents('../.env'));
         $arr = $env->getContent();
@@ -17,19 +18,24 @@ class PdoInfo {
         $this->dbName = $arr['MYSQL_DATABASE'];
         $this->user = $arr['MYSQL_USER'];
         $this->password = $arr['MYSQL_ROOT_PASSWORD'];
+        $this->charset = $arr['CHARSET'];
     }
+    
 
-    protected function GetMysqlHostName(){
+    public function GetMysqlHostName(){
         return $this->mySqlHostName;
     }
-    protected function GetDbName(){
+    public function GetDbName(){
         return $this->dbName;
     }
-    protected function GetUser(){
+    public function GetUser(){
         return $this->user;
     }
-    protected function GetPassword(){
+    public function GetPassword(){
         return $this->password;
+    }
+    public function GetCharset(){
+        return $this->charset;
     }
 
 
